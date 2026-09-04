@@ -15,6 +15,72 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l5b-hS-eBt">
+                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="2gk-8n-Za0" customClass="TaskTableViewCell" customModule="DayPlan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2gk-8n-Za0" id="4v9-ov-SrE">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbp-gU-t2R">
+                                                    <rect key="frame" x="12" y="11.666666666666664" width="28" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="3MU-ke-TFm"/>
+                                                        <constraint firstAttribute="height" constant="28" id="JC6-I2-spn"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
+                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pe5-ne-dM9">
+                                                    <rect key="frame" x="52.000000000000007" y="5.3333333333333321" width="75.666666666666686" height="40.333333333333343"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRd-kx-5gV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glJ-7u-7Fd">
+                                                            <rect key="frame" x="0.0" y="22.333333333333336" width="39" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spg-Hg-6Xe">
+                                                    <rect key="frame" x="345.33333333333331" y="15.333333333333334" width="35.666666666666686" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fbp-gU-t2R" firstAttribute="centerY" secondItem="4v9-ov-SrE" secondAttribute="centerY" id="11t-wl-5Q4"/>
+                                                <constraint firstAttribute="trailing" secondItem="spg-Hg-6Xe" secondAttribute="trailing" constant="12" id="5ht-UI-J0D"/>
+                                                <constraint firstItem="spg-Hg-6Xe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pe5-ne-dM9" secondAttribute="trailing" constant="16" id="9Pj-Yn-y2A"/>
+                                                <constraint firstItem="Pe5-ne-dM9" firstAttribute="centerY" secondItem="4v9-ov-SrE" secondAttribute="centerY" id="Qxy-TC-X3S"/>
+                                                <constraint firstItem="spg-Hg-6Xe" firstAttribute="centerY" secondItem="4v9-ov-SrE" secondAttribute="centerY" id="qbb-x3-UVg"/>
+                                                <constraint firstItem="Fbp-gU-t2R" firstAttribute="leading" secondItem="4v9-ov-SrE" secondAttribute="leading" constant="11.999999999999996" id="sd6-zl-jRF"/>
+                                                <constraint firstItem="Pe5-ne-dM9" firstAttribute="leading" secondItem="4v9-ov-SrE" secondAttribute="leading" constant="52" id="x7R-sb-odu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="completionButton" destination="Fbp-gU-t2R" id="rpp-yH-x2r"/>
+                                            <outlet property="priorityLabel" destination="spg-Hg-6Xe" id="HJv-TS-kL7"/>
+                                            <outlet property="timeLabel" destination="glJ-7u-7Fd" id="dof-Cz-du7"/>
+                                            <outlet property="titleLabel" destination="gRd-kx-5gV" id="Hgq-ae-Vo3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -24,6 +90,9 @@
                         </centerItemGroups>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="DFJ-fw-MYZ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="l5b-hS-eBt" id="zGG-L8-2KR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -49,7 +118,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
