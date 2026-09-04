@@ -36,6 +36,9 @@
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="completionButtonTapped:" destination="2gk-8n-Za0" eventType="touchUpInside" id="yuE-WO-nyD"/>
+                                                    </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pe5-ne-dM9">
                                                     <rect key="frame" x="52.000000000000007" y="5.3333333333333321" width="75.666666666666686" height="40.333333333333343"/>

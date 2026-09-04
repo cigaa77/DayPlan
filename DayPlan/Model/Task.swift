@@ -12,4 +12,5 @@ struct Task {
     let date: Date
     let priority: TaskPriority
     var isCompleted: Bool
+    let id = UUID()
 }

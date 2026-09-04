@@ -35,6 +35,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell else {
             return UITableViewCell()
         }
+        cell.delegate = self
         let task = viewModel.task(at: indexPath.row, in: indexPath.section)
         cell.configure(title: task.title, time: viewModel.timeText(for: task), priority: task.priority, isCompleted: task.isCompleted)
         return cell
@@ -51,3 +52,12 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension TaskListViewController: TaskTableViewCellDelegate {
+    func didTapCompletionButton(in cell: TaskTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        viewModel.toggleTaskCompletion(at: indexPath.row, in: indexPath.section)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+}

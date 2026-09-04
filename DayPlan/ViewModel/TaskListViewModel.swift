@@ -72,5 +72,20 @@ final class TaskListViewModel {
         }
         return formatter.string(from: task.date)
     }
+    func toggleTaskCompletion(at index: Int, in section: Int) {
+        let selectedTask: Task
+        
+        if section == 0 {
+            selectedTask = todayTasks[index]
+        } else {
+            selectedTask = upcomingTasks[index]
+        }
+        
+        guard let taskIndex = tasks.firstIndex(where: { $0.id == selectedTask.id }) else {
+            return
+        }
+        
+        tasks[taskIndex].isCompleted.toggle()
+    }
 
 }

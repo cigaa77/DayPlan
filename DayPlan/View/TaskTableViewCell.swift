@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol TaskTableViewCellDelegate: AnyObject{
+    func didTapCompletionButton(in cell: TaskTableViewCell)
+}
+
 class TaskTableViewCell: UITableViewCell {
 
     @IBOutlet weak var completionButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var priorityLabel: UILabel!
+    
+    weak var delegate: TaskTableViewCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,7 +36,7 @@ class TaskTableViewCell: UITableViewCell {
         priority: TaskPriority,
         isCompleted: Bool
     ) {
-        titleLabel.text = title
+        //titleLabel.text = title
         timeLabel.text = time
         priorityLabel.text = priority.rawValue.capitalized
 
@@ -61,10 +67,29 @@ class TaskTableViewCell: UITableViewCell {
                 for: .normal
             )
         }
+        if isCompleted {
+            titleLabel.attributedText = NSAttributedString(
+                string: title,
+                attributes: [
+                    .strikethroughStyle: NSUnderlineStyle.single.rawValue
+                ]
+            )
+            titleLabel.textColor = .secondaryLabel
+            timeLabel.textColor = .tertiaryLabel
+        } else {
+            titleLabel.attributedText = nil //NSAttributedString(string: title)
+            titleLabel.text = title
+            titleLabel.textColor = .label
+            timeLabel.textColor = .secondaryLabel
+        }
 
         //priorityLabel.layer.cornerRadius = 8
         //priorityLabel.clipsToBounds = true
 
+    }
+    
+    @IBAction func completionButtonTapped(_ sender: Any) {
+        delegate?.didTapCompletionButton(in: self)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -72,5 +97,4 @@ class TaskTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
