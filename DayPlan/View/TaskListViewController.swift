@@ -29,15 +29,25 @@ class TaskListViewController: UIViewController {
 
 extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfTasks
+        return viewModel.numberOfTasks(in: section)
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TaskTableViewCell else {
             return UITableViewCell()
         }
-        let task = viewModel.task(at: indexPath.row)
+        let task = viewModel.task(at: indexPath.row, in: indexPath.section)
         cell.configure(title: task.title, time: viewModel.timeText(for: task), priority: task.priority, isCompleted: task.isCompleted)
         return cell
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Today"
+        } else {
+            return "Upcoming"
+        }
     }
 }
 

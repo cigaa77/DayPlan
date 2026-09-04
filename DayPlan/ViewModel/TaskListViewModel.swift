@@ -28,16 +28,48 @@ final class TaskListViewModel {
             priority: .low,
             isCompleted: true
         ),
+        Task(
+            title: "Study German Tomorrow",
+            date: Calendar.current.date(
+                byAdding: .day,
+                value: 2,
+                to: Date()
+            )!,
+            priority: .medium,
+            isCompleted: false
+        )
     ]
-    var numberOfTasks: Int {
-        return tasks.count
+    private var todayTasks: [Task] {
+        return tasks.filter { task in
+            Calendar.current.isDateInToday(task.date)
+        }
     }
-    func task(at index: Int) -> Task {
-        return tasks[index]
+    private var upcomingTasks: [Task] {
+        return tasks.filter { task in
+            task.date > Date() && !Calendar.current.isDateInToday(task.date)
+        }
+    }
+    func numberOfTasks(in section: Int) -> Int {
+        if section == 0 {
+            return todayTasks.count
+        } else {
+            return upcomingTasks.count
+        }
+    }
+    func task(at index: Int, in section: Int) -> Task {
+        if section == 0 {
+            return todayTasks[index]
+        } else {
+            return upcomingTasks[index]
+        }
     }
     func timeText(for task: Task) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
+        if Calendar.current.isDateInToday(task.date) {
+            formatter.dateFormat = "HH:mm"
+        } else {
+            formatter.dateFormat = "dd.MM.yyyy - HH:mm"
+        }
         return formatter.string(from: task.date)
     }
 
