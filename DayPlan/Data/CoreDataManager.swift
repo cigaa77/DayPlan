@@ -80,5 +80,21 @@ final class CoreDataManager {
         }
 
     }
+    
+    func deleteTask(_ task: Task){
+        let request = TaskEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id==%@", task.id as CVarArg)
+        
+        do {
+            let taskEntities = try context.fetch(request)
+            
+            guard let taskEntity = taskEntities.first else { return }
+            
+            context.delete(taskEntity)
+            try context.save()
+        } catch {
+            print("Failed to delete task: \(error)")
+        }
+    }
 
 }

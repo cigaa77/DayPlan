@@ -61,6 +61,13 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             return "Upcoming"
         }
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.deleteTask(at: indexPath.row, in: indexPath.section)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            //tableView.reloadData()
+        }
+    }
 }
 
 extension TaskListViewController: TaskTableViewCellDelegate {

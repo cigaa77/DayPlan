@@ -73,5 +73,22 @@ final class TaskListViewModel {
         tasks.append(task)
         coreDataManager.saveTask(task)
     }
+    func deleteTask(at index: Int, in section: Int) {
+        let selectedTask: Task
+        
+        if section == 0 {
+            selectedTask = todayTasks[index]
+        } else {
+            selectedTask = upcomingTasks[index]
+        }
+        
+        guard let taskIndex = tasks.firstIndex(where: { task in
+            task.id == selectedTask.id
+        }) else {
+            return
+        }
+        coreDataManager.deleteTask(tasks[taskIndex])
+        tasks.remove(at: taskIndex)
+    }
 
 }
