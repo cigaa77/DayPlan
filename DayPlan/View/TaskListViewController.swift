@@ -22,6 +22,17 @@ class TaskListViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        navigationItem.backButtonTitle = "DayPlan"
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let addTaskViewController = segue.destination as? AddTaskViewController else {
+            return
+        }
+        addTaskViewController.delegate = self
     }
 
 
@@ -59,5 +70,12 @@ extension TaskListViewController: TaskTableViewCellDelegate {
         }
         viewModel.toggleTaskCompletion(at: indexPath.row, in: indexPath.section)
         tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+}
+
+extension TaskListViewController: AddTaskViewControllerDelegate {
+    func addTaskViewController(_ controller: AddTaskViewController, didCreate: Task) {
+        viewModel.addTask(task: didCreate)
+        tableView.reloadData()
     }
 }

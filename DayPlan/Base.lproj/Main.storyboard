@@ -91,7 +91,11 @@
                         <centerItemGroups>
                             <barButtonItemGroup customizationDisposition="fixed" id="d37-yB-vvZ"/>
                         </centerItemGroups>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="DFJ-fw-MYZ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="DFJ-fw-MYZ">
+                            <connections>
+                                <segue destination="DKm-E4-rWY" kind="show" id="UGs-MZ-M9H"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="l5b-hS-eBt" id="zGG-L8-2KR"/>
@@ -100,6 +104,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064.885496183206" y="130.98591549295776"/>
+        </scene>
+        <!--Add Task-->
+        <scene sceneID="V0u-y0-hgJ">
+            <objects>
+                <viewController id="DKm-E4-rWY" customClass="AddTaskViewController" customModule="DayPlan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OES-Ql-GTp">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMc-Oz-2yM">
+                                <rect key="frame" x="20" y="204" width="35" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Task title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aa6-hl-7Va">
+                                <rect key="frame" x="20" y="228" width="353" height="50"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JYu-gq-zN9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DETAILS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSh-eU-q7n">
+                                <rect key="frame" x="20" y="302" width="52" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wax-6q-Kse">
+                                <rect key="frame" x="20" y="326" width="353" height="100"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="avr-g6-osX"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE &amp; TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQw-9y-lsf">
+                                <rect key="frame" x="20" y="446" width="80" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="RsF-bE-flW">
+                                <rect key="frame" x="0.0" y="470" width="393" height="36"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIORITY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSO-N4-9FZ">
+                                <rect key="frame" x="20" y="530" width="59" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="0gp-BQ-fNP">
+                                <rect key="frame" x="20" y="554" width="353" height="32"/>
+                                <segments>
+                                    <segment title="Low"/>
+                                    <segment title="Medium"/>
+                                    <segment title="High"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xy2-cj-PNf">
+                                <rect key="frame" x="20" y="617" width="353" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="G3m-CW-LAm"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save Task" cornerStyle="medium"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="DKm-E4-rWY" eventType="touchUpInside" id="BLG-lj-OjC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="D2S-JG-9Ud"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RsF-bE-flW" firstAttribute="top" secondItem="UQw-9y-lsf" secondAttribute="bottom" constant="8" id="3Fd-lr-NKE"/>
+                            <constraint firstItem="YSO-N4-9FZ" firstAttribute="top" secondItem="RsF-bE-flW" secondAttribute="bottom" constant="24" id="4QQ-Yu-rOM"/>
+                            <constraint firstItem="xy2-cj-PNf" firstAttribute="leading" secondItem="D2S-JG-9Ud" secondAttribute="leading" constant="20" id="5yD-R6-eWk"/>
+                            <constraint firstItem="0gp-BQ-fNP" firstAttribute="leading" secondItem="D2S-JG-9Ud" secondAttribute="leading" constant="20" id="9b0-zw-U1F"/>
+                            <constraint firstItem="rSh-eU-q7n" firstAttribute="leading" secondItem="D2S-JG-9Ud" secondAttribute="leading" constant="20" id="Chc-L1-3hi"/>
+                            <constraint firstItem="0gp-BQ-fNP" firstAttribute="top" secondItem="YSO-N4-9FZ" secondAttribute="bottom" constant="8" id="DWb-Zc-nBJ"/>
+                            <constraint firstItem="D2S-JG-9Ud" firstAttribute="trailing" secondItem="xy2-cj-PNf" secondAttribute="trailing" constant="20" id="Dlg-bG-sHc"/>
+                            <constraint firstItem="qMc-Oz-2yM" firstAttribute="leading" secondItem="D2S-JG-9Ud" secondAttribute="leading" constant="20" id="G7g-gD-AvB"/>
+                            <constraint firstItem="rSh-eU-q7n" firstAttribute="top" secondItem="aa6-hl-7Va" secondAttribute="bottom" constant="24" id="HB1-XH-z5w"/>
+                            <constraint firstItem="qMc-Oz-2yM" firstAttribute="top" secondItem="D2S-JG-9Ud" secondAttribute="top" constant="32" id="P46-K6-GIv"/>
+                            <constraint firstItem="D2S-JG-9Ud" firstAttribute="trailing" secondItem="wax-6q-Kse" secondAttribute="trailing" constant="20" id="QVz-Ja-VfY"/>
+                            <constraint firstItem="YSO-N4-9FZ" firstAttribute="leading" secondItem="D2S-JG-9Ud" secondAttribute="leading" constant="20" id="TXJ-7G-Wmc"/>
+                            <constraint firstItem="wax-6q-Kse" firstAttribute="top" secondItem="rSh-eU-q7n" secondAttribute="bottom" constant="8" id="TgP-to-UKO"/>
+                            <constraint firstItem="aa6-hl-7Va" firstAttribute="top" secondItem="qMc-Oz-2yM" secondAttribute="bottom" constant="8" id="UVw-Kw-2F6"/>
+                            <constraint firstItem="D2S-JG-9Ud" firstAttribute="trailing" secondItem="0gp-BQ-fNP" secondAttribute="trailing" constant="20" id="WJC-fe-mT4"/>
+                            <constraint firstItem="UQw-9y-lsf" firstAttribute="top" secondItem="wax-6q-Kse" secondAttribute="bottom" constant="20" id="ZGa-BD-B8R"/>
+                            <constraint firstItem="aa6-hl-7Va" firstAttribute="leading" secondItem="D2S-JG-9Ud" secondAttribute="leading" constant="20" id="b0I-AH-cLg"/>
+                            <constraint firstItem="RsF-bE-flW" firstAttribute="leading" secondItem="OES-Ql-GTp" secondAttribute="leading" constant="20" id="b0S-4W-bYe"/>
+                            <constraint firstItem="UQw-9y-lsf" firstAttribute="leading" secondItem="D2S-JG-9Ud" secondAttribute="leading" constant="20" id="bfV-nf-TPe"/>
+                            <constraint firstItem="xy2-cj-PNf" firstAttribute="top" secondItem="0gp-BQ-fNP" secondAttribute="bottom" constant="32" id="hsa-wG-L2k"/>
+                            <constraint firstItem="D2S-JG-9Ud" firstAttribute="trailing" secondItem="aa6-hl-7Va" secondAttribute="trailing" constant="20" id="s91-S4-vx8"/>
+                            <constraint firstItem="wax-6q-Kse" firstAttribute="leading" secondItem="D2S-JG-9Ud" secondAttribute="leading" constant="20" id="sme-dF-Rrc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Task" largeTitleDisplayMode="never" id="hz0-4o-JpW"/>
+                    <connections>
+                        <outlet property="datePicker" destination="RsF-bE-flW" id="kFL-Ns-kXk"/>
+                        <outlet property="detailsTextView" destination="wax-6q-Kse" id="P6C-Rp-zQ9"/>
+                        <outlet property="prioritySegmentedControl" destination="0gp-BQ-fNP" id="w1r-rF-biq"/>
+                        <outlet property="titleTextField" destination="aa6-hl-7Va" id="htI-uH-MVo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeL-vS-Dju" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1924.4274809160304" y="-25.35211267605634"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6np-y1-6Su">
@@ -123,8 +241,14 @@
     <resources>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

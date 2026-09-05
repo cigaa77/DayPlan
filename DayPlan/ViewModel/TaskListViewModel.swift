@@ -87,5 +87,8 @@ final class TaskListViewModel {
         
         tasks[taskIndex].isCompleted.toggle()
     }
+    func addTask(task:Task) {
+        tasks.append(task)
+    }
 
 }
