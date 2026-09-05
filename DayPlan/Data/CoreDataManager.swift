@@ -62,9 +62,23 @@ final class CoreDataManager {
             return []
         }
     }
-    
+
     func updateTask(_ task: Task) {
-        
+        let request = TaskEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "id==%@", task.id as CVarArg)
+
+        do {
+            let taskEntities = try context.fetch(request)
+
+            guard let taskEntity = taskEntities.first else { return }
+
+            taskEntity.isCompleted = task.isCompleted
+
+            try context.save()
+        } catch {
+            print("Failed to update task: \(error)")
+        }
+
     }
 
 }

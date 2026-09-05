@@ -67,6 +67,7 @@ final class TaskListViewModel {
         }
 
         tasks[taskIndex].isCompleted.toggle()
+        coreDataManager.updateTask(tasks[taskIndex])
     }
     func addTask(_ task: Task) {
         tasks.append(task)
