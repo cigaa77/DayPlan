@@ -9,36 +9,14 @@ import Foundation
 
 final class TaskListViewModel {
 
-    private var tasks: [Task] = [
-        Task(
-            title: "Finish iOS Course",
-            date: Date(),
-            priority: .high,
-            isCompleted: false
-        ),
-        Task(
-            title: "Study German",
-            date: Date(),
-            priority: .medium,
-            isCompleted: false
-        ),
-        Task(
-            title: "Go to Gym",
-            date: Date(),
-            priority: .low,
-            isCompleted: true
-        ),
-        Task(
-            title: "Study German Tomorrow",
-            date: Calendar.current.date(
-                byAdding: .day,
-                value: 2,
-                to: Date()
-            )!,
-            priority: .medium,
-            isCompleted: false
-        )
-    ]
+    private let coreDataManager = CoreDataManager()
+
+    private var tasks: [Task] = []
+    
+    init() {
+        self.tasks = coreDataManager.fetchTasks()
+    }
+    
     private var todayTasks: [Task] {
         return tasks.filter { task in
             Calendar.current.isDateInToday(task.date)
@@ -74,21 +52,25 @@ final class TaskListViewModel {
     }
     func toggleTaskCompletion(at index: Int, in section: Int) {
         let selectedTask: Task
-        
+
         if section == 0 {
             selectedTask = todayTasks[index]
         } else {
             selectedTask = upcomingTasks[index]
         }
-        
-        guard let taskIndex = tasks.firstIndex(where: { $0.id == selectedTask.id }) else {
+
+        guard
+            let taskIndex = tasks.firstIndex(where: { $0.id == selectedTask.id }
+            )
+        else {
             return
         }
-        
+
         tasks[taskIndex].isCompleted.toggle()
     }
-    func addTask(task:Task) {
+    func addTask(_ task: Task) {
         tasks.append(task)
+        coreDataManager.saveTask(task)
     }
 
 }

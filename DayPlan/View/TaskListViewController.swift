@@ -75,7 +75,7 @@ extension TaskListViewController: TaskTableViewCellDelegate {
 
 extension TaskListViewController: AddTaskViewControllerDelegate {
     func addTaskViewController(_ controller: AddTaskViewController, didCreate: Task) {
-        viewModel.addTask(task: didCreate)
+        viewModel.addTask(didCreate)
         tableView.reloadData()
     }
 }
