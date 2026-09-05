@@ -10,9 +10,15 @@ import UIKit
 
 final class CoreDataManager: TaskDataManaging {
 
-    private var context: NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
+    private let context: NSManagedObjectContext
+    
+    init(context: NSManagedObjectContext? = nil) {
+        if let context {
+            self.context = context
+        } else {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            self.context = appDelegate.persistentContainer.viewContext
+        }
     }
 
     func saveTask(_ task: Task) {
