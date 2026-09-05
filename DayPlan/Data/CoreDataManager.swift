@@ -8,7 +8,7 @@
 import CoreData
 import UIKit
 
-final class CoreDataManager {
+final class CoreDataManager: TaskDataManaging {
 
     private var context: NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

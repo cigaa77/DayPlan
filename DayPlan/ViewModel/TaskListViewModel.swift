@@ -9,11 +9,12 @@ import Foundation
 
 final class TaskListViewModel {
 
-    private let coreDataManager = CoreDataManager()
+    private let coreDataManager: TaskDataManaging
 
     private var tasks: [Task] = []
     
-    init() {
+    init(coreDataManager: TaskDataManaging = CoreDataManager()) {
+        self.coreDataManager = coreDataManager
         self.tasks = coreDataManager.fetchTasks()
     }
     
