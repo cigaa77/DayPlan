@@ -81,25 +81,51 @@ struct CoreDataManagerTests {
     }
 
     // MARK: - Update
+    
+    @Test
+    func updateTaskUpdatesAllValues() {
 
-    @Test func updateTaskUpdatesCompletion() {
         let container = makeInMemoryContainer()
-        let manager = CoreDataManager(context: container.viewContext)
+        let context = container.viewContext
+        let coreDataManager = CoreDataManager(context: context)
 
-        var task = Task(
-            title: "Gym",
-            date: Date(),
-            priority: .medium,
+        let originalDate = Date()
+
+        let originalTask = Task(
+            title: "Study German",
+            taskDescription: "30 minutes",
+            date: originalDate,
+            priority: .high,
             isCompleted: false
         )
-        manager.saveTask(task)
 
-        task.isCompleted = true
-        manager.updateTask(task)
+        coreDataManager.saveTask(originalTask)
 
-        let tasks = manager.fetchTasks()
+        let newDate = originalDate.addingTimeInterval(3600)
 
-        #expect(tasks.first?.isCompleted == true)
+        let updatedTask = Task(
+            id: originalTask.id,
+            title: "Study English",
+            taskDescription: "45 minutes",
+            date: newDate,
+            priority: .low,
+            isCompleted: true
+        )
+
+        coreDataManager.updateTask(updatedTask)
+
+        let fetchedTasks = coreDataManager.fetchTasks()
+
+        #expect(fetchedTasks.count == 1)
+
+        let fetchedTask = fetchedTasks[0]
+
+        #expect(fetchedTask.id == originalTask.id)
+        #expect(fetchedTask.title == "Study English")
+        #expect(fetchedTask.taskDescription == "45 minutes")
+        #expect(fetchedTask.date == newDate)
+        #expect(fetchedTask.priority == .low)
+        #expect(fetchedTask.isCompleted == true)
     }
 
     // MARK: - Delete
