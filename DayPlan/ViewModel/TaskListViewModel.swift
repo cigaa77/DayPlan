@@ -86,6 +86,13 @@ final class TaskListViewModel {
         }) else { return }
 
         tasks[taskIndex].isCompleted.toggle()
+        
+        if tasks[taskIndex].isCompleted {
+            tasks[taskIndex].completedAt = Date()
+        } else {
+            tasks[taskIndex].completedAt = nil
+        }
+        
         coreDataManager.updateTask(tasks[taskIndex])
     }
     func addTask(_ task: Task) {

@@ -29,6 +29,7 @@ final class CoreDataManager: TaskDataManaging {
         taskEntity.date = task.date
         taskEntity.priority = task.priority.rawValue
         taskEntity.isCompleted = task.isCompleted
+        taskEntity.completedAt = task.completedAt
 
         do {
             try context.save()
@@ -59,7 +60,8 @@ final class CoreDataManager: TaskDataManaging {
                     taskDescription: entity.taskDescription,
                     date: date,
                     priority: priority,
-                    isCompleted: entity.isCompleted
+                    isCompleted: entity.isCompleted,
+                    completedAt: entity.completedAt
                 )
             }
             return tasks
@@ -83,6 +85,7 @@ final class CoreDataManager: TaskDataManaging {
             taskEntity.date = task.date
             taskEntity.priority = task.priority.rawValue
             taskEntity.isCompleted = task.isCompleted
+            taskEntity.completedAt = task.completedAt
 
             try context.save()
         } catch {

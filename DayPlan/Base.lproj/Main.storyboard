@@ -91,11 +91,18 @@
                         <centerItemGroups>
                             <barButtonItemGroup customizationDisposition="fixed" id="d37-yB-vvZ"/>
                         </centerItemGroups>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="DFJ-fw-MYZ">
-                            <connections>
-                                <segue destination="DKm-E4-rWY" kind="show" identifier="toAddTask" id="UGs-MZ-M9H"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="plus" catalog="system" id="DFJ-fw-MYZ">
+                                <connections>
+                                    <segue destination="DKm-E4-rWY" kind="show" identifier="toAddTask" id="UGs-MZ-M9H"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="checkmark.circle" catalog="system" id="wjW-KL-ht5">
+                                <connections>
+                                    <segue destination="ceR-Ar-fKx" kind="show" identifier="toCompletedTasks" id="vjV-hF-IaC"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="l5b-hS-eBt" id="zGG-L8-2KR"/>
@@ -104,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064.885496183206" y="130.98591549295776"/>
+            <point key="canvasLocation" x="1847" y="63"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="FMW-hk-hMD">
@@ -192,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv5-eF-lF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="721"/>
+            <point key="canvasLocation" x="3097" y="839"/>
         </scene>
         <!--Edit Task View Controller-->
         <scene sceneID="BCI-Zw-1Wj">
@@ -285,7 +292,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZu-8E-TtK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2895" y="720"/>
+            <point key="canvasLocation" x="3921" y="839"/>
+        </scene>
+        <!--Completed Tasks View Controller-->
+        <scene sceneID="edu-Rh-CDk">
+            <objects>
+                <viewController id="ceR-Ar-fKx" customClass="CompletedTasksViewController" customModule="DayPlan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ppp-GH-BZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C1e-oT-YSv">
+                                <rect key="frame" x="0.0" y="172" width="393" height="612"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="completedTaskCell" id="GbG-pi-hW9">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GbG-pi-hW9" id="PL3-QL-aLa">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="45k-b8-rTb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="45k-b8-rTb" firstAttribute="trailing" secondItem="C1e-oT-YSv" secondAttribute="trailing" id="91L-UM-sda"/>
+                            <constraint firstItem="45k-b8-rTb" firstAttribute="bottom" secondItem="C1e-oT-YSv" secondAttribute="bottom" id="H04-Sh-Pnd"/>
+                            <constraint firstItem="C1e-oT-YSv" firstAttribute="top" secondItem="45k-b8-rTb" secondAttribute="top" id="g4D-Lv-v4x"/>
+                            <constraint firstItem="C1e-oT-YSv" firstAttribute="leading" secondItem="45k-b8-rTb" secondAttribute="leading" id="xV6-RI-sCN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jHk-37-Fjg"/>
+                    <connections>
+                        <outlet property="tableView" destination="C1e-oT-YSv" id="dZv-Gb-9Zq"/>
+                        <segue destination="qGo-sW-lnm" kind="show" identifier="toCompletedTaskDetail" id="nFI-7w-R9r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCa-JL-iqF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1847" y="839"/>
         </scene>
         <!--Add Task-->
         <scene sceneID="V0u-y0-hgJ">
@@ -399,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeL-vS-Dju" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924.4274809160304" y="-25.35211267605634"/>
+            <point key="canvasLocation" x="3097" y="63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6np-y1-6Su">
@@ -417,10 +466,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxn-MO-jXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.1679389312977" y="130.98591549295776"/>
+            <point key="canvasLocation" x="982" y="63"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nFI-7w-R9r"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="checkmark.circle" catalog="system" width="128" height="123"/>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

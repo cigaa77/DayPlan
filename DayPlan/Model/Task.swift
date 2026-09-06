@@ -13,6 +13,7 @@ struct Task {
     let date: Date
     let priority: TaskPriority
     var isCompleted: Bool
+    var completedAt: Date?
     let id: UUID
 
     init(
@@ -21,13 +22,15 @@ struct Task {
         taskDescription: String? = nil,
         date: Date,
         priority: TaskPriority,
-        isCompleted: Bool
+        isCompleted: Bool,
+        completedAt: Date? = nil
     ) {
         self.title = title
         self.taskDescription = taskDescription
         self.date = date
         self.priority = priority
         self.isCompleted = isCompleted
+        self.completedAt = completedAt
         self.id = id
     }
 }
