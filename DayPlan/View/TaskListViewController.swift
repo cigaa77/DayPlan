@@ -29,10 +29,19 @@ class TaskListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let addTaskViewController = segue.destination as? AddTaskViewController else {
-            return
+        if segue.identifier == "toAddTask" {
+            guard let addTaskViewController = segue.destination as? AddTaskViewController else {
+                return
+            }
+            addTaskViewController.delegate = self
         }
-        addTaskViewController.delegate = self
+        
+        if segue.identifier == "toTaskDetail",
+           let detailViewController = segue.destination as? TaskDetailViewController,
+           let selectedTask = sender as? Task {
+            detailViewController.task = selectedTask
+        }
+        
     }
 
 
@@ -68,6 +77,11 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             //tableView.reloadData()
         }
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedTask = viewModel.task(at: indexPath.row, in: indexPath.section)
+        
+        performSegue(withIdentifier: "toTaskDetail", sender: selectedTask)
+    }
 }
 
 extension TaskListViewController: TaskTableViewCellDelegate {
@@ -83,6 +97,13 @@ extension TaskListViewController: TaskTableViewCellDelegate {
 extension TaskListViewController: AddTaskViewControllerDelegate {
     func addTaskViewController(_ controller: AddTaskViewController, didCreate: Task) {
         viewModel.addTask(didCreate)
+        tableView.reloadData()
+    }
+}
+
+extension TaskListViewController: EditTaskViewControllerDelegate {
+    func editTaskViewController(_ controller: EditTaskViewController, didUpdate task: Task) {
+        viewModel.updateTask(task)
         tableView.reloadData()
     }
 }

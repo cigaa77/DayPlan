@@ -77,7 +77,11 @@ final class CoreDataManager: TaskDataManaging {
             let taskEntities = try context.fetch(request)
 
             guard let taskEntity = taskEntities.first else { return }
-
+            
+            taskEntity.title = task.title
+            taskEntity.taskDescription = task.taskDescription
+            taskEntity.date = task.date
+            taskEntity.priority = task.priority.rawValue
             taskEntity.isCompleted = task.isCompleted
 
             try context.save()

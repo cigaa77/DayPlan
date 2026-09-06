@@ -91,5 +91,13 @@ final class TaskListViewModel {
         coreDataManager.deleteTask(tasks[taskIndex])
         tasks.remove(at: taskIndex)
     }
+    func updateTask(_ task: Task){
+        guard let index = tasks.firstIndex(where: {
+            $0.id == task.id
+        }) else {return}
+        
+        tasks[index] = task
+        coreDataManager.updateTask(task)
+    }
 
 }
