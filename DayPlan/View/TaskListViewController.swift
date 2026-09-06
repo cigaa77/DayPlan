@@ -61,20 +61,24 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return viewModel.visibleSections.count
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        let taskSection = viewModel.visibleSections[section]
+        switch taskSection {
+        case .overdue:
+            return "Overdue"
+        case .today:
             return "Today"
-        } else {
+        case .upcoming:
             return "Upcoming"
         }
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             viewModel.deleteTask(at: indexPath.row, in: indexPath.section)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-            //tableView.reloadData()
+            //tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+            tableView.reloadData()
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -90,7 +94,8 @@ extension TaskListViewController: TaskTableViewCellDelegate {
             return
         }
         viewModel.toggleTaskCompletion(at: indexPath.row, in: indexPath.section)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        //tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
 }
 

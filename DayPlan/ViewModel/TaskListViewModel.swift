@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum TaskSection{
+    case overdue
+    case today
+    case upcoming
+}
+
 final class TaskListViewModel {
 
     private let coreDataManager: TaskDataManaging
@@ -17,28 +23,49 @@ final class TaskListViewModel {
         self.coreDataManager = coreDataManager
         self.tasks = coreDataManager.fetchTasks()
     }
-    
+    private var overdueTasks: [Task] {
+        return tasks.filter { task in
+            task.date < Date() && !Calendar.current.isDateInToday(task.date) && !task.isCompleted
+        }
+    }
     private var todayTasks: [Task] {
         return tasks.filter { task in
-            Calendar.current.isDateInToday(task.date)
+            Calendar.current.isDateInToday(task.date) && !task.isCompleted
         }
     }
     private var upcomingTasks: [Task] {
         return tasks.filter { task in
-            task.date > Date() && !Calendar.current.isDateInToday(task.date)
+            task.date > Date() && !Calendar.current.isDateInToday(task.date) && !task.isCompleted
         }
     }
+    var visibleSections: [TaskSection] {
+        var sections: [TaskSection] = []
+        if !overdueTasks.isEmpty {
+            sections.append(.overdue)
+        }
+        sections.append(.today)
+        sections.append(.upcoming)
+        return sections
+    }
     func numberOfTasks(in section: Int) -> Int {
-        if section == 0 {
+        let tasksSection = visibleSections[section]
+        switch tasksSection {
+        case .overdue:
+            return overdueTasks.count
+        case .today:
             return todayTasks.count
-        } else {
+        case .upcoming:
             return upcomingTasks.count
         }
     }
     func task(at index: Int, in section: Int) -> Task {
-        if section == 0 {
+        let taskSection = visibleSections[section]
+        switch taskSection {
+        case .overdue:
+            return overdueTasks[index]
+        case .today:
             return todayTasks[index]
-        } else {
+        case .upcoming:
             return upcomingTasks[index]
         }
     }
@@ -52,20 +79,11 @@ final class TaskListViewModel {
         return formatter.string(from: task.date)
     }
     func toggleTaskCompletion(at index: Int, in section: Int) {
-        let selectedTask: Task
-
-        if section == 0 {
-            selectedTask = todayTasks[index]
-        } else {
-            selectedTask = upcomingTasks[index]
-        }
-
-        guard
-            let taskIndex = tasks.firstIndex(where: { $0.id == selectedTask.id }
-            )
-        else {
-            return
-        }
+        let selectedTask = task(at: index,in: section)
+        
+        guard let taskIndex = tasks.firstIndex(where: { task in
+            task.id == selectedTask.id
+        }) else { return }
 
         tasks[taskIndex].isCompleted.toggle()
         coreDataManager.updateTask(tasks[taskIndex])
@@ -75,13 +93,7 @@ final class TaskListViewModel {
         coreDataManager.saveTask(task)
     }
     func deleteTask(at index: Int, in section: Int) {
-        let selectedTask: Task
-        
-        if section == 0 {
-            selectedTask = todayTasks[index]
-        } else {
-            selectedTask = upcomingTasks[index]
-        }
+        let selectedTask = task(at: index, in: section)
         
         guard let taskIndex = tasks.firstIndex(where: { task in
             task.id == selectedTask.id
