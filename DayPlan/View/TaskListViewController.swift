@@ -70,7 +70,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.delegate = self
         let task = viewModel.task(at: indexPath.row, in: indexPath.section)
-        cell.configure(title: task.title, time: viewModel.timeText(for: task), priority: task.priority, isCompleted: task.isCompleted)
+        cell.configure(title: task.title, time: viewModel.timeText(for: task), priority: task.priority, isCompleted: task.isCompleted, isOverdue: viewModel.isOverdue(task))
         return cell
     }
     func numberOfSections(in tableView: UITableView) -> Int {

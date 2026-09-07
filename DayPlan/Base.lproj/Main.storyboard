@@ -22,17 +22,17 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" id="2gk-8n-Za0" customClass="TaskTableViewCell" customModule="DayPlan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="51"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="57.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2gk-8n-Za0" id="4v9-ov-SrE">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="57.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbp-gU-t2R">
-                                                    <rect key="frame" x="12" y="11.666666666666664" width="28" height="28"/>
+                                                    <rect key="frame" x="12" y="6.6666666666666679" width="44" height="44"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="28" id="3MU-ke-TFm"/>
-                                                        <constraint firstAttribute="height" constant="28" id="JC6-I2-spn"/>
+                                                        <constraint firstAttribute="width" constant="44" id="3MU-ke-TFm"/>
+                                                        <constraint firstAttribute="height" constant="44" id="JC6-I2-spn"/>
                                                     </constraints>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system"/>
@@ -41,16 +41,16 @@
                                                     </connections>
                                                 </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Pe5-ne-dM9">
-                                                    <rect key="frame" x="52.000000000000007" y="5.3333333333333321" width="75.666666666666686" height="40.333333333333343"/>
+                                                    <rect key="frame" x="52.000000000000007" y="8" width="75.666666666666686" height="41.333333333333336"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRd-kx-5gV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="20.333333333333332"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Task Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRd-kx-5gV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="21.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glJ-7u-7Fd">
-                                                            <rect key="frame" x="0.0" y="22.333333333333336" width="39" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="14:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glJ-7u-7Fd">
+                                                            <rect key="frame" x="0.0" y="23.333333333333329" width="39" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                                             <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spg-Hg-6Xe" customClass="PaddingLabel" customModule="DayPlan" customModuleProvider="target">
-                                                    <rect key="frame" x="345.33333333333331" y="15.333333333333334" width="35.666666666666686" height="20.333333333333329"/>
+                                                    <rect key="frame" x="345.33333333333331" y="18.666666666666671" width="35.666666666666686" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -68,7 +68,9 @@
                                                 <constraint firstItem="Fbp-gU-t2R" firstAttribute="centerY" secondItem="4v9-ov-SrE" secondAttribute="centerY" id="11t-wl-5Q4"/>
                                                 <constraint firstAttribute="trailing" secondItem="spg-Hg-6Xe" secondAttribute="trailing" constant="12" id="5ht-UI-J0D"/>
                                                 <constraint firstItem="spg-Hg-6Xe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pe5-ne-dM9" secondAttribute="trailing" constant="16" id="9Pj-Yn-y2A"/>
+                                                <constraint firstItem="Pe5-ne-dM9" firstAttribute="top" secondItem="4v9-ov-SrE" secondAttribute="top" constant="8" id="LBq-Iv-U4p"/>
                                                 <constraint firstItem="Pe5-ne-dM9" firstAttribute="centerY" secondItem="4v9-ov-SrE" secondAttribute="centerY" id="Qxy-TC-X3S"/>
+                                                <constraint firstAttribute="bottom" secondItem="Pe5-ne-dM9" secondAttribute="bottom" constant="8" id="TdS-9J-GeF"/>
                                                 <constraint firstItem="spg-Hg-6Xe" firstAttribute="centerY" secondItem="4v9-ov-SrE" secondAttribute="centerY" id="qbb-x3-UVg"/>
                                                 <constraint firstItem="Fbp-gU-t2R" firstAttribute="leading" secondItem="4v9-ov-SrE" secondAttribute="leading" constant="11.999999999999996" id="sd6-zl-jRF"/>
                                                 <constraint firstItem="Pe5-ne-dM9" firstAttribute="leading" secondItem="4v9-ov-SrE" secondAttribute="leading" constant="52" id="x7R-sb-odu"/>
@@ -456,7 +458,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BCV-Y5-hay" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4DZ-5i-PML">
-                        <rect key="frame" x="0.0" y="118" width="393" height="54"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -470,7 +471,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nFI-7w-R9r"/>
+        <segue reference="n9B-Pd-kLF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle" catalog="system" width="128" height="123"/>

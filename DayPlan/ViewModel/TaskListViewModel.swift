@@ -136,5 +136,8 @@ final class TaskListViewModel {
         tasks[index] = task
         coreDataManager.updateTask(task)
     }
+    func isOverdue(_ task: Task) -> Bool {
+        return task.date < Date() && !Calendar.current.isDateInToday(task.date) && !task.isCompleted
+    }
 
 }

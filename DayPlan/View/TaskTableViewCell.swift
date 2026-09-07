@@ -34,10 +34,13 @@ class TaskTableViewCell: UITableViewCell {
         title: String,
         time: String,
         priority: TaskPriority,
-        isCompleted: Bool
+        isCompleted: Bool,
+        isOverdue: Bool
     ) {
         //titleLabel.text = title
         timeLabel.text = time
+        timeLabel.textColor = isOverdue ? .systemRed : .label
+        
         priorityLabel.text = priority.rawValue.capitalized
 
         switch priority {
@@ -80,7 +83,7 @@ class TaskTableViewCell: UITableViewCell {
             titleLabel.attributedText = nil //NSAttributedString(string: title)
             titleLabel.text = title
             titleLabel.textColor = .label
-            timeLabel.textColor = .secondaryLabel
+            timeLabel.textColor = isOverdue ?.systemRed : .secondaryLabel
         }
 
         //priorityLabel.layer.cornerRadius = 8
