@@ -44,7 +44,20 @@ class TaskListViewController: UIViewController {
         
     }
 
-
+    override func updateContentUnavailableConfiguration(using state: UIContentUnavailableConfigurationState) {
+        if viewModel.totalTaskCount == 0 {
+            var configuration = UIContentUnavailableConfiguration.empty()
+            
+            configuration.image = UIImage(systemName: "checklist")
+            configuration.text = "No Tasks yet"
+            configuration.secondaryText = "Tap + to add your first task."
+            
+            contentUnavailableConfiguration = configuration
+            
+        } else {
+            contentUnavailableConfiguration = nil
+        }
+    }
 }
 
 extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -79,6 +92,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
             viewModel.deleteTask(at: indexPath.row, in: indexPath.section)
             //tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             tableView.reloadData()
+            setNeedsUpdateContentUnavailableConfiguration()
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -96,6 +110,7 @@ extension TaskListViewController: TaskTableViewCellDelegate {
         viewModel.toggleTaskCompletion(at: indexPath.row, in: indexPath.section)
         //tableView.reloadRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
+        setNeedsUpdateContentUnavailableConfiguration()
     }
 }
 
@@ -103,6 +118,7 @@ extension TaskListViewController: AddTaskViewControllerDelegate {
     func addTaskViewController(_ controller: AddTaskViewController, didCreate: Task) {
         viewModel.addTask(didCreate)
         tableView.reloadData()
+        setNeedsUpdateContentUnavailableConfiguration()
     }
 }
 
@@ -110,5 +126,6 @@ extension TaskListViewController: EditTaskViewControllerDelegate {
     func editTaskViewController(_ controller: EditTaskViewController, didUpdate task: Task) {
         viewModel.updateTask(task)
         tableView.reloadData()
+        setNeedsUpdateContentUnavailableConfiguration()
     }
 }
