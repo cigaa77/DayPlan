@@ -6,6 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		19EA51C6304EF8A2008F0DCC /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 19EA51C5304EF89B008F0DCC /* README.md */; };
+		19EA51CF304EF922008F0DCC /* task-detail.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EA51CC304EF922008F0DCC /* task-detail.png */; };
+		19EA51D0304EF922008F0DCC /* empty-completed.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EA51CA304EF922008F0DCC /* empty-completed.png */; };
+		19EA51D1304EF922008F0DCC /* add-task.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EA51C7304EF922008F0DCC /* add-task.png */; };
+		19EA51D2304EF922008F0DCC /* edit-task.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EA51C9304EF922008F0DCC /* edit-task.png */; };
+		19EA51D3304EF922008F0DCC /* completed-tasks.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EA51C8304EF922008F0DCC /* completed-tasks.png */; };
+		19EA51D4304EF922008F0DCC /* empty-tasks.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EA51CB304EF922008F0DCC /* empty-tasks.png */; };
+		19EA51D5304EF922008F0DCC /* task-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 19EA51CD304EF922008F0DCC /* task-list.png */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		19569846304AEEA800E51AA5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +38,14 @@
 		1956982C304AEEA600E51AA5 /* DayPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19569845304AEEA800E51AA5 /* DayPlanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayPlanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1956984F304AEEA800E51AA5 /* DayPlanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DayPlanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19EA51C5304EF89B008F0DCC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		19EA51C7304EF922008F0DCC /* add-task.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-task.png"; sourceTree = "<group>"; };
+		19EA51C8304EF922008F0DCC /* completed-tasks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "completed-tasks.png"; sourceTree = "<group>"; };
+		19EA51C9304EF922008F0DCC /* edit-task.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-task.png"; sourceTree = "<group>"; };
+		19EA51CA304EF922008F0DCC /* empty-completed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-completed.png"; sourceTree = "<group>"; };
+		19EA51CB304EF922008F0DCC /* empty-tasks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "empty-tasks.png"; sourceTree = "<group>"; };
+		19EA51CC304EF922008F0DCC /* task-detail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "task-detail.png"; sourceTree = "<group>"; };
+		19EA51CD304EF922008F0DCC /* task-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "task-list.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,6 +107,8 @@
 		19569823304AEEA600E51AA5 = {
 			isa = PBXGroup;
 			children = (
+				19EA51C5304EF89B008F0DCC /* README.md */,
+				19EA51CE304EF922008F0DCC /* Screenshots */,
 				1956982E304AEEA600E51AA5 /* DayPlan */,
 				19569848304AEEA800E51AA5 /* DayPlanTests */,
 				19569852304AEEA800E51AA5 /* DayPlanUITests */,
@@ -103,6 +124,20 @@
 				1956984F304AEEA800E51AA5 /* DayPlanUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		19EA51CE304EF922008F0DCC /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				19EA51C7304EF922008F0DCC /* add-task.png */,
+				19EA51C8304EF922008F0DCC /* completed-tasks.png */,
+				19EA51C9304EF922008F0DCC /* edit-task.png */,
+				19EA51CA304EF922008F0DCC /* empty-completed.png */,
+				19EA51CB304EF922008F0DCC /* empty-tasks.png */,
+				19EA51CC304EF922008F0DCC /* task-detail.png */,
+				19EA51CD304EF922008F0DCC /* task-list.png */,
+			);
+			path = Screenshots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +260,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19EA51CF304EF922008F0DCC /* task-detail.png in Resources */,
+				19EA51D0304EF922008F0DCC /* empty-completed.png in Resources */,
+				19EA51D1304EF922008F0DCC /* add-task.png in Resources */,
+				19EA51D2304EF922008F0DCC /* edit-task.png in Resources */,
+				19EA51D3304EF922008F0DCC /* completed-tasks.png in Resources */,
+				19EA51D4304EF922008F0DCC /* empty-tasks.png in Resources */,
+				19EA51D5304EF922008F0DCC /* task-list.png in Resources */,
+				19EA51C6304EF8A2008F0DCC /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
